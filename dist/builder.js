@@ -8296,7 +8296,7 @@ if (typeof Vue !== 'undefined') {
   Vue.use(Builder);
 }
 
-Builder.version = '1.0.1';
+Builder.version = '1.0.0';
 Builder.types = types;
 
 return Builder;
