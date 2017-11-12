@@ -3818,7 +3818,7 @@ Section.prototype.get = function get$$1 (name) {
   return obj[prop]
 };
 
-var BuilderComponent = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"artboard",staticClass:"artboard",class:{ 'is-sorting': _vm.$builder.isSorting },attrs:{"id":"artboard"}},_vm._l((_vm.$builder.sections),function(section){return _c(section.name,{key:section.id,tag:"component",attrs:{"id":section.id}})})),_c('div',{staticClass:"controller"},[(_vm.showIntro && !this.$builder.sections.length)?_c('div',{staticClass:"controller-intro"},[_c('h1',[_vm._v("Hello, start your project")]),_c('div',{staticClass:"container"})]):_vm._e(),_c('ul',{staticClass:"controller-list",class:{ 'is-visiable': _vm.listShown }},_vm._l((_vm.sections),function(section,index){return _c('li',[_c('a',{staticClass:"controller-element",on:{"click":function($event){_vm.addSection(section);}}},[(_vm.covers[index])?_c('img',{attrs:{"src":_vm.covers[index]}}):_c('span',[_vm._v(_vm._s(section))])])])})),_c('div',{staticClass:"controller-buttons"},[_c('button',{staticClass:"controller-submit button is-green is-rounded",on:{"click":_vm.submit}},[_c('i',{staticClass:"material-icons"},[_vm._v("done")])]),_c('button',{staticClass:"controller-sort button is-blue is-rounded",class:{ 'is-red': _vm.$builder.isSorting },on:{"click":_vm.toogleState}},[_c('i',{staticClass:"material-icons"},[_vm._v("sort")])]),_c('button',{staticClass:"controller-add button is-blue is-rounded",class:{ 'is-red': _vm.listShown },attrs:{"disabled":_vm.$builder.isSorting},on:{"click":_vm.newSection}},[_c('i',{staticClass:"material-icons"},[_vm._v("add")])])])])])},staticRenderFns: [],
+var BuilderComponent = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"artboard",staticClass:"artboard",class:{ 'is-sorting': _vm.$builder.isSorting },attrs:{"id":"artboard"}},_vm._l((_vm.$builder.sections),function(section){return _c(section.name,{key:section.id,tag:"component",attrs:{"id":section.id}})})),_c('div',{staticClass:"controller"},[(_vm.showIntro && !this.$builder.sections.length)?_c('div',{staticClass:"controller-intro"},[_c('div',{staticClass:"container"},[_vm._t("container")],2)]):_vm._e(),_c('ul',{staticClass:"controller-list",class:{ 'is-visiable': _vm.listShown }},_vm._l((_vm.sections),function(section,index){return _c('li',[_c('a',{staticClass:"controller-element",on:{"click":function($event){_vm.addSection(section);}}},[(_vm.covers[index])?_c('img',{attrs:{"src":_vm.covers[index]}}):_c('span',[_vm._v(_vm._s(section))])])])})),_c('div',{staticClass:"controller-buttons"},[_c('button',{staticClass:"controller-submit button is-green is-rounded",on:{"click":_vm.submit}},[_c('i',{staticClass:"material-icons"},[_vm._v("done")])]),_c('button',{staticClass:"controller-sort button is-blue is-rounded",class:{ 'is-red': _vm.$builder.isSorting },on:{"click":_vm.toogleState}},[_c('i',{staticClass:"material-icons"},[_vm._v("sort")])]),_c('button',{staticClass:"controller-add button is-blue is-rounded",class:{ 'is-red': _vm.listShown },attrs:{"disabled":_vm.$builder.isSorting},on:{"click":_vm.newSection}},[_c('i',{staticClass:"material-icons"},[_vm._v("add")])])])])])},staticRenderFns: [],
   name: 'builder',
 
   props: {
@@ -8246,8 +8246,10 @@ Builder.use = function use (plugin, options) {
 Builder.prototype.toggleSort = function toggleSort () {
   if (!this.isSorting && this.sortable) {
     this.sortable.destroy();
+
     return
   }
+
   this.sortable = Sortable.create(this.rootEl, {
     animation: 150,
     scroll: true,
@@ -8296,7 +8298,7 @@ if (typeof Vue !== 'undefined') {
   Vue.use(Builder);
 }
 
-Builder.version = '1.0.0';
+Builder.version = '1.0.2';
 Builder.types = types;
 
 return Builder;
