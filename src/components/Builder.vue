@@ -8,8 +8,8 @@
 
     .controller
       .controller-intro(v-if="showIntro && !this.$builder.sections.length")
-        h1 Hello, start your project
         .container
+          slot(name='container')
 
       ul.controller-list(:class="{ 'is-visiable': listShown }")
         li(v-for="(section, index) in sections")
@@ -113,6 +113,43 @@ export default {
       z-index: 200
       bottom: 30px
       right: 30px
+
+      .button
+        display: inline-block
+        line-height: 1
+        white-space: nowrap
+        cursor: pointer
+        background: #fff
+        border: 1px solid #d8dce5
+        color: #5a5e66
+        -webkit-appearance: none
+        text-align: center
+        box-sizing: border-box
+        outline: 0
+        margin: 0
+        transition: .1s
+        font-weight: 500
+        padding: 12px 20px
+        font-size: 14px
+        border-radius: 4px
+
+        &:hover
+          color: #409eff
+          border-color: #c6e2ff
+          background-color: #ecf5ff
+
+        &.is-red
+          color: #fff
+          background-color: #fa5555
+          border-color: #fa5555
+
+        &.is-green
+          color: #fff
+          background-color: #409EFF
+          border-color: #409EFF
+
+        &.is-rounded
+          border-radius: 10px
 
       button:not(:last-child)
         margin-right: 20px

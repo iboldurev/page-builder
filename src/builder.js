@@ -139,8 +139,10 @@ class Builder {
   toggleSort () {
     if (!this.isSorting && this.sortable) {
       this.sortable.destroy()
+
       return
     }
+
     this.sortable = Sortable.create(this.rootEl, {
       animation: 150,
       scroll: true,

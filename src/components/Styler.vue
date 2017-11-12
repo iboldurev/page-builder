@@ -229,6 +229,9 @@ export default {
     justify-content: center
     align-items: center
 
+    .material-icons
+      color: #fff
+
     &-list
       display: flex
       justify-content: center
