@@ -1,6 +1,6 @@
 {
   "name": "pages-builder",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Page Builder",
   "author": "Ivan Boldyrev <iboldurev@gmail.com>",
   "unpkg": "dist/builder.min.js",

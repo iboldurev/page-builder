@@ -18,6 +18,9 @@
           button.styler-button(@click="updateOption('align')")
             i.material-icons format_align_justify
         li
+          button.styler-button(@click="updateOption('textSize')")
+            i.material-icons format_size
+        li
           button.styler-button(@click="updateOption('textStyle')")
             i.material-icons text_format
 
@@ -41,6 +44,11 @@
                 :value="textColors[index]"
                 v-model="textColor"
                 @click="execute('forecolor', textColor)")
+      li(v-if="currentOption === 'textSize'")
+          ul.sizeer
+            li(v-for="size in sizes")
+              button.styler-button(@click="execute('fontSize', size)")
+                span {{ size }}
       li(v-if="currentOption === 'link'")
         .input.is-rounded.is-button
           input(type="text" placeholder="type your link" v-model="url")
@@ -76,9 +84,11 @@ export default {
   props: ['el', 'type', 'name', 'section'],
 
   data: () => ({
+    sizes: ['1', '2', '3', '4', '5', '6', '7'],
     colors: ['blue', 'green', 'red', 'black', 'white'],
     textColors: ['#4da1ff', '#38E4B7', '#EA4F52', '#000000', '#FFFFFF'],
     textColor: '',
+    textSize: '',
     oldColorerColor: '',
     colorerColor: '',
     mouseTarget: '',
@@ -229,7 +239,7 @@ export default {
     justify-content: center
     align-items: center
 
-    .material-icons
+    .material-icons, span
       color: #fff
 
     &-list
@@ -269,7 +279,7 @@ export default {
     .input
       margin: 0
 
-  .align
+  .align, sizeer
     @extend .styler-list
     height: 42px
 

@@ -118,9 +118,9 @@ button:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-  .styler .material-icons {
+  .styler .material-icons, .styler span {
     color: #fff; }
-  .styler-list, .align, .colorer {
+  .styler-list, .align, sizeer, .colorer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +151,7 @@ button:focus {
   .styler .input {
     margin: 0; }
 
-.align {
+.align, sizeer {
   height: 42px; }
 
 .colorer {
