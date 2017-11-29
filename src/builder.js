@@ -143,11 +143,22 @@ class Builder {
       return
     }
 
+    console.log(this.sections)
+
+    let self = this
     this.sortable = Sortable.create(this.rootEl, {
       animation: 150,
       scroll: true,
-      scrollSpeed: 10
+      scrollSpeed: 10,
+      onUpdate ({oldIndex, newIndex}) {
+        self.sortSections(oldIndex, newIndex)
+      }
     })
+  }
+
+  sortSections (oldIndex, newIndex) {
+    const movedItem = this.sections.splice(oldIndex, 1)[0]
+    this.sections.splice(newIndex, 0, movedItem)
   }
 
   toJSON () {

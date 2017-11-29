@@ -8250,11 +8250,25 @@ Builder.prototype.toggleSort = function toggleSort () {
     return
   }
 
+  console.log(this.sections);
+
+  var self = this;
   this.sortable = Sortable.create(this.rootEl, {
     animation: 150,
     scroll: true,
-    scrollSpeed: 10
+    scrollSpeed: 10,
+    onUpdate: function onUpdate (ref) {
+        var oldIndex = ref.oldIndex;
+        var newIndex = ref.newIndex;
+
+      self.sortSections(oldIndex, newIndex);
+    }
   });
+};
+
+Builder.prototype.sortSections = function sortSections (oldIndex, newIndex) {
+  var movedItem = this.sections.splice(oldIndex, 1)[0];
+  this.sections.splice(newIndex, 0, movedItem);
 };
 
 Builder.prototype.toJSON = function toJSON () {
